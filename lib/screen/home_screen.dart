@@ -4,6 +4,7 @@ import 'package:todo_list_ui/models/Categories.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:todo_list_ui/models/ongoing_task.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:todo_list_ui/screen/habits.dart';
 
 class HomeScren extends StatefulWidget {
   const HomeScren({Key? key}) : super(key: key);
@@ -43,6 +44,7 @@ class _HomeScrenState extends State<HomeScren> {
       profilePhoto3: 'assets/profile_avatar2.jpg',
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,42 +171,52 @@ class _HomeScrenState extends State<HomeScren> {
                               ),
                             ],
                           ),
-                          Stack(
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.43,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.3,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset(
-                                    categorieData[1].image,
-                                    fit: BoxFit.cover,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Habits()),
+                              );
+                            },
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.43,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.3,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      categorieData[1].image,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned(
-                                top: 10,
-                                left: 10,
-                                child: Text(
-                                  categorieData[1].name,
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 18),
+                                Positioned(
+                                  top: 10,
+                                  left: 10,
+                                  child: Text(
+                                    categorieData[1].name,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 18),
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                top: 40,
-                                left: 10,
-                                child: Text(
-                                  categorieData[1].task,
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 16),
+                                Positioned(
+                                  top: 40,
+                                  left: 10,
+                                  child: Text(
+                                    categorieData[1].task,
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 16),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(
