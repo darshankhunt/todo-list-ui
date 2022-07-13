@@ -51,38 +51,42 @@ class _HomeScrenState extends State<HomeScren> {
       backgroundColor: const Color(0xffe1efed),
       extendBodyBehindAppBar: true,
       body: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Add Task',
-          elevation: 4.0,
-          backgroundColor: const Color(0xffff9d85),
-          child: const Icon(Icons.add, color: Color(0xffa24129)),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        bottomNavigationBar: const GNav(
-          gap: 8,
-          backgroundColor: Colors.white,
-          color: Colors.grey,
-          activeColor: Color.fromARGB(255, 80, 170, 117),
-          tabs: [
-            GButton(
-              icon: Icons.home_filled,
-              text: 'Home',
-            ),
-            GButton(
-              icon: Icons.note_alt_sharp,
-              text: 'Report',
-            ),
-            GButton(
-              icon: Icons.search,
-              text: 'Search',
-            ),
-            GButton(
-              icon: Icons.abc,
-              iconColor: Color(0xffffffff),
-              iconActiveColor: Color(0xffffffff),
-            ),
-          ],
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Row(
+            children: [
+              const Expanded(
+                child: GNav(
+                  gap: 8,
+                  backgroundColor: Colors.white,
+                  color: Colors.grey,
+                  activeColor: Color.fromARGB(255, 80, 170, 117),
+                  tabs: [
+                    GButton(
+                      icon: Icons.home_filled,
+                      text: 'Home',
+                    ),
+                    GButton(
+                      icon: Icons.note_alt_sharp,
+                      text: 'Report',
+                    ),
+                    GButton(
+                      icon: Icons.search,
+                      text: 'Search',
+                    ),
+                  ],
+                ),
+              ),
+              FloatingActionButton(
+                onPressed: () {},
+                tooltip: 'Add Task',
+                elevation: 4.0,
+                mini: true,
+                backgroundColor: const Color(0xffff9d85),
+                child: const Icon(Icons.add, color: Color(0xffa24129)),
+              ),
+            ],
+          ),
         ),
         body: Stack(
           children: [
